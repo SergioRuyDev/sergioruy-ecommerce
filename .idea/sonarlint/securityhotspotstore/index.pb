@@ -9,3 +9,11 @@ j
 :src/main/java/com/sergioruy/model/InitUnitPersistence.java,a/7/a7471d3c18d03374929bf0df1efb40ca1b758d2c
 i
 9src/main/java/com/sergioruy/util/InitUnitPersistence.java,7/5/75a80374275e947c9a204414d71be29c4c1fd017
+V
+&src/test/java/ConsultRegisterTest.java,b/c/bc03ac25e9e80ffa72ed008c0016829e60471a9d
+p
+@src/test/java/com/sergioruy/initwithjpa/ConsultRegisterTest.java,1/5/1538ac410a7657fbffd918842e8df3ca83815083
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
