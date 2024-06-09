@@ -17,3 +17,13 @@ p
 -.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
 S
 #.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+n
+>src/test/java/com/sergioruy/initwithjpa/EntityManagerTest.java,3/6/36ac16fab749fb8cc5c75c88fb04020dce8210ff
+v
+Fsrc/test/java/com/sergioruy/initwithjpa/TransactionOperationsTest.java,c/c/ccc62e985c61eceadb3c03e3fe1b4ad57e3e096b
+_
+/src/main/java/com/sergioruy/model/Customer.java,2/2/22e14ec3793d11fd55dd1493eb4ebc3838f54cc1
+j
+:src/test/java/com/sergioruy/initwithjpa/FirstCrudTest.java,9/2/92339b1bcb8591e464afb425d1572df48ea7241f
+b
+2src/test/java/com/sergioruy/EntityManagerTest.java,6/5/657fdc7b253698a37443f70c224b572ac30d291c

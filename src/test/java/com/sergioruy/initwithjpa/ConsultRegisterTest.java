@@ -1,37 +1,30 @@
 package com.sergioruy.initwithjpa;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import com.sergioruy.EntityManagerTest;
+import com.sergioruy.model.Product;
+import org.junit.jupiter.api.Test;
 
-public class ConsultRegisterTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-    private static EntityManagerFactory entityManagerFactory;
+public class ConsultRegisterTest extends EntityManagerTest {
 
-    private EntityManager entityManager;
+    @Test
+    public void consultRegister() {
+        Product product = entityManager.find(Product.class, 1);
+//        Product product = entityManager.getReference(Product.class, 1);
 
-    @BeforeAll
-    public static void setupBeforeClass() {
-        entityManagerFactory = Persistence
-                .createEntityManagerFactory("Ecommerce-PU");
+        assertNotNull(product);
+        assertEquals("Kindle", product.getName());
     }
 
-    @AfterAll
-    public static void tearDownAfterClass() {
-        entityManagerFactory.close();
-    }
+    @Test
+    public void updateReference() {
+        Product product = entityManager.find(Product.class, 1);
 
-    @BeforeEach
-    public void setUp() {
-        entityManager = entityManagerFactory.createEntityManager();
-    }
+        product.setName("Microphone Samson");
+        entityManager.refresh(product);
 
-    @AfterEach
-    public void tearDown() {
-        entityManager.close();
+        assertEquals("Kindle", product.getName());
     }
 }
