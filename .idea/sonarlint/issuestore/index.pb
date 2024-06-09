@@ -1,24 +1,16 @@
 
-U
-%src/main/java/com/sergioruy/Main.java,7/3/732cdf05caae4af7a66c60994a8d28547f998bed
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 ^
 .src/main/java/com/sergioruy/model/Product.java,7/6/762d604a9a232ba099b2c205b55b0fd94161a41b
-j
-:src/main/java/com/sergioruy/model/InitUnitPersistence.java,a/7/a7471d3c18d03374929bf0df1efb40ca1b758d2c
 i
 9src/main/java/com/sergioruy/util/InitUnitPersistence.java,7/5/75a80374275e947c9a204414d71be29c4c1fd017
-V
-&src/test/java/ConsultRegisterTest.java,b/c/bc03ac25e9e80ffa72ed008c0016829e60471a9d
 p
 @src/test/java/com/sergioruy/initwithjpa/ConsultRegisterTest.java,1/5/1538ac410a7657fbffd918842e8df3ca83815083
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
 S
 #.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
-n
->src/test/java/com/sergioruy/initwithjpa/EntityManagerTest.java,3/6/36ac16fab749fb8cc5c75c88fb04020dce8210ff
 v
 Fsrc/test/java/com/sergioruy/initwithjpa/TransactionOperationsTest.java,c/c/ccc62e985c61eceadb3c03e3fe1b4ad57e3e096b
 _

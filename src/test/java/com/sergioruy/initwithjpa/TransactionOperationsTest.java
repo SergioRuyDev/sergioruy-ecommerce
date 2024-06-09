@@ -2,15 +2,20 @@ package com.sergioruy.initwithjpa;
 
 import com.sergioruy.EntityManagerTest;
 import com.sergioruy.model.Product;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TransactionOperationsTest extends EntityManagerTest {
 
     @Test
+    @Order(8)
     public void openAndCloseTransaction() {
         Product product = new Product(); // only for avoid error
 
@@ -24,6 +29,7 @@ public class TransactionOperationsTest extends EntityManagerTest {
     }
 
     @Test
+    @Order(7)
     public void firstInsert() {
         Product product = new Product();
         product.setId(2);
@@ -45,6 +51,7 @@ public class TransactionOperationsTest extends EntityManagerTest {
     }
 
     @Test
+    @Order(6)
     public void removeObject() {
         Product product = entityManager.find(Product.class, 3);
 
@@ -60,9 +67,11 @@ public class TransactionOperationsTest extends EntityManagerTest {
     }
 
     @Test
+    @Order(5)
     public void updateObject() {
         // if you dont go to the database, you need set all properties, otherwise, all others properties will set as null.
         Product product = new Product();
+        product.setId(1);
         product.setName("Kindle Paperwhite");
         product.setDescription("The best reader.");
         product.setPrice(new BigDecimal(599));
@@ -82,6 +91,7 @@ public class TransactionOperationsTest extends EntityManagerTest {
     }
 
     @Test
+    @Order(4)
     public void updateObjectManaged() {
         // Going to the database we can keep all the others properties and change only the one managed.
         Product product = entityManager.find(Product.class, 1);
@@ -102,6 +112,7 @@ public class TransactionOperationsTest extends EntityManagerTest {
     }
 
     @Test
+    @Order(3)
     public void insertObjectWithMerge() {
 
         Product product = new Product();
@@ -124,6 +135,7 @@ public class TransactionOperationsTest extends EntityManagerTest {
     }
 
     @Test
+    @Order(2)
     public void differenceBetweenPersistAndMerge() {
 
         Product productPersist = new Product();
@@ -164,5 +176,22 @@ public class TransactionOperationsTest extends EntityManagerTest {
         Product productVerificationMerged = entityManager.find(Product.class, productMerge.getId());
 
         assertNotNull(productVerificationMerged);
+    }
+
+    @Test
+    @Order(1)
+    public void avoidDatabaseOperationWithDetach() {
+        Product product = entityManager.find(Product.class, 1);
+
+        entityManager.detach(product);
+
+        entityManager.getTransaction().begin();
+        product.setName("Kindle Paperwhite");
+        entityManager.getTransaction().commit();
+        entityManager.clear();
+
+        Product productVerification= entityManager.find(Product.class, product.getId());
+
+        assertEquals("Kindle", productVerification.getName());
     }
 }

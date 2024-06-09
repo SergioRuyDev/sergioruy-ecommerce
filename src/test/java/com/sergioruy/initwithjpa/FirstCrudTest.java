@@ -2,13 +2,18 @@ package com.sergioruy.initwithjpa;
 
 import com.sergioruy.EntityManagerTest;
 import com.sergioruy.model.Customer;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class FirstCrudTest extends EntityManagerTest {
 
     @Test
+    @Order(1)
     public void insertCustomer() {
 
         Customer customer = new Customer();
@@ -25,6 +30,7 @@ public class FirstCrudTest extends EntityManagerTest {
     }
 
     @Test
+    @Order(2)
     public void selectCustomer() {
 
         Customer consultCustomer = entityManager.find(Customer.class, 1);
@@ -33,6 +39,7 @@ public class FirstCrudTest extends EntityManagerTest {
     }
 
     @Test
+    @Order(3)
     public void updateCustomer() {
         Customer mergeCustomer = entityManager.find(Customer.class, 1);
         mergeCustomer.setName("Mark Grayson");
@@ -46,9 +53,11 @@ public class FirstCrudTest extends EntityManagerTest {
         assertNotNull(mergedCustomerVerification);
         assertEquals("Mark Grayson", mergedCustomerVerification.getName());
         assertEquals(1, mergedCustomerVerification.getId());
+
     }
 
     @Test
+    @Order(4)
     public void deleteCustomer() {
         Customer deletedCustomer = entityManager.find(Customer.class, 2);
 
