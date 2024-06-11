@@ -1,7 +1,6 @@
 package com.sergioruy.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,14 +11,17 @@ import java.math.BigDecimal;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@Table(name = "payment_card")
 public class PaymentCard {
 
     @EqualsAndHashCode.Include
     @Id
     private Integer id;
 
+    @Column(name = "ordered_id")
     private Integer orderedId;
 
+    @Enumerated(EnumType.STRING)
     private StatusPayment status;
 
     private String digits;

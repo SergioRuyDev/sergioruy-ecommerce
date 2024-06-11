@@ -1,7 +1,6 @@
 package com.sergioruy.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,19 +12,24 @@ import java.time.LocalDateTime;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@Table(name = "ordered")
 public class Ordered {
 
     @EqualsAndHashCode.Include
     @Id
     private Integer id;
 
+    @Column(name = "date_ordered")
     private LocalDateTime dateOrdered;
 
+    @Column(name = "date_conclusion")
     private LocalDateTime dateConclusion;
 
+    @Column(name = "invoice_id")
     private Integer invoiceId;
 
     private BigDecimal amount;
 
+    @Enumerated(EnumType.STRING)
     private StatusOrder status;
 }

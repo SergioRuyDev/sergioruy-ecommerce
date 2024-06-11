@@ -1,7 +1,6 @@
 package com.sergioruy.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +9,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@Table(name = "customer")
 public class Customer {
 
     @EqualsAndHashCode.Include
@@ -18,5 +18,6 @@ public class Customer {
 
     private String name;
 
+    @Enumerated(EnumType.STRING)
     private CustomerGenderEnum gender;
 }
