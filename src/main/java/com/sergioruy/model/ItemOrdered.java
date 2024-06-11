@@ -6,17 +6,23 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Customer {
+public class ItemOrdered {
 
     @EqualsAndHashCode.Include
     @Id
     private Integer id;
 
-    private String name;
+    private Integer orderedId;
 
-    private CustomerGenderEnum gender;
+    private Integer productId;
+
+    private BigDecimal productPrice;
+
+    private Integer quantity;
 }

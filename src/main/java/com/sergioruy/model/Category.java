@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Customer {
+public class Category {
 
     @EqualsAndHashCode.Include
     @Id
@@ -18,5 +18,5 @@ public class Customer {
 
     private String name;
 
-    private CustomerGenderEnum gender;
+    private Integer categoryHigherId;
 }
