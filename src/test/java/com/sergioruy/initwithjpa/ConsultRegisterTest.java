@@ -20,6 +20,7 @@ public class ConsultRegisterTest extends EntityManagerTest {
         entityManager.getTransaction().commit();
         entityManager.clear();
         product = entityManager.find(Product.class, 1);
+//        product = entityManager.getReference(Product.class, 1);
 
         assertNotNull(product);
         assertEquals("Kindle", product.getName());
