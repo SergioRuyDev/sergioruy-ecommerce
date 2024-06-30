@@ -17,6 +17,7 @@ public class Ordered {
 
     @EqualsAndHashCode.Include
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "date_ordered")
@@ -32,4 +33,7 @@ public class Ordered {
 
     @Enumerated(EnumType.STRING)
     private StatusOrder status;
+
+    @Embedded
+    private AddressDeliveryOrdered addressDelivery;
 }

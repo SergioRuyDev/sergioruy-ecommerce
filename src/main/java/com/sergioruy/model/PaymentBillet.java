@@ -14,6 +14,7 @@ public class PaymentBillet {
 
     @EqualsAndHashCode.Include
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "ordered_id")

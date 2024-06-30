@@ -32,7 +32,6 @@ public class TransactionOperationsTest extends EntityManagerTest {
     @Order(7)
     public void firstInsert() {
         Product product = new Product();
-        product.setId(2);
         product.setName("Camera Canon");
         product.setDescription("The best pictures for you.");
         product.setPrice(new BigDecimal(5000));
@@ -53,7 +52,15 @@ public class TransactionOperationsTest extends EntityManagerTest {
     @Test
     @Order(6)
     public void removeObject() {
-        Product product = entityManager.find(Product.class, 3);
+        Product product = new Product();
+
+        entityManager.getTransaction().begin();
+
+        entityManager.persist(product);
+
+        entityManager.getTransaction().commit();
+
+        product = entityManager.find(Product.class, 1);
 
         entityManager.getTransaction().begin();
 
@@ -61,7 +68,7 @@ public class TransactionOperationsTest extends EntityManagerTest {
 
         entityManager.getTransaction().commit();
 
-        Product productVerification = entityManager.find(Product.class, 3);
+        Product productVerification = entityManager.find(Product.class, 1);
 
         assertNull(productVerification);
     }
@@ -116,7 +123,6 @@ public class TransactionOperationsTest extends EntityManagerTest {
     public void insertObjectWithMerge() {
 
         Product product = new Product();
-        product.setId(4);
         product.setName("Microphone Rode");
         product.setDescription("Better sound quality.");
         product.setPrice(new BigDecimal(1000));
@@ -129,7 +135,7 @@ public class TransactionOperationsTest extends EntityManagerTest {
 
         entityManager.clear(); // remove from entity manager memory
 
-        Product productVerification = entityManager.find(Product.class, product.getId());
+        Product productVerification = entityManager.find(Product.class, 1);
 
         assertNotNull(productVerification);
     }
@@ -139,7 +145,6 @@ public class TransactionOperationsTest extends EntityManagerTest {
     public void differenceBetweenPersistAndMerge() {
 
         Product productPersist = new Product();
-        productPersist.setId(5);
         productPersist.setName("Smartphone One Plus");
         productPersist.setDescription("The must fast Android.");
         productPersist.setPrice(new BigDecimal(2000));
@@ -159,7 +164,7 @@ public class TransactionOperationsTest extends EntityManagerTest {
 
         // Merge also can used as a insert
         Product productMerge = new Product();
-        productMerge.setId(6);
+//        productMerge.setId(6);
         productMerge.setName("Notebook Dell Alienware");
         productMerge.setDescription("Your games with you.");
         productMerge.setPrice(new BigDecimal(7000));
@@ -181,7 +186,16 @@ public class TransactionOperationsTest extends EntityManagerTest {
     @Test
     @Order(1)
     public void avoidDatabaseOperationWithDetach() {
-        Product product = entityManager.find(Product.class, 1);
+        Product product = new Product();
+        product.setName("Kindle");
+
+        entityManager.getTransaction().begin();
+
+        entityManager.persist(product);
+
+        entityManager.getTransaction().commit();
+
+        product = entityManager.find(Product.class, 1);
 
         entityManager.detach(product);
 

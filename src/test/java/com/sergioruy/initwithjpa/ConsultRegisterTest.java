@@ -11,8 +11,15 @@ public class ConsultRegisterTest extends EntityManagerTest {
 
     @Test
     public void consultRegister() {
-        Product product = entityManager.find(Product.class, 1);
-//        Product product = entityManager.getReference(Product.class, 1);
+
+        Product product = new Product();
+        product.setName("Kindle");
+
+        entityManager.getTransaction().begin();
+        entityManager.persist(product);
+        entityManager.getTransaction().commit();
+        entityManager.clear();
+        product = entityManager.find(Product.class, 1);
 
         assertNotNull(product);
         assertEquals("Kindle", product.getName());

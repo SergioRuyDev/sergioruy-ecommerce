@@ -39,3 +39,9 @@ d
 4src/main/java/com/sergioruy/model/PaymentBillet.java,f/0/f0cf1ae0bc9048ff208dbe541ecfab4edb98b76e
 ^
 .src/main/java/com/sergioruy/model/Invoice.java,c/c/cc15643a1b926de27dbac6434b27f011e8091771
+m
+=src/main/java/com/sergioruy/model/AddressDeliveryOrdered.java,2/0/202dbf7ef91da10a8f6d6e53eea831435e147796
+t
+Dsrc/test/java/com/sergioruy/initwithjpa/MapEmbeaddableClassTest.java,6/b/6beab6b714e040476373429377ff4452a91b7330
+s
+Csrc/test/java/com/sergioruy/initwithjpa/MapEmbeddableClassTest.java,1/6/16ade8c65a0d61784295a4957a2541aa24bbfc7d
