@@ -20,6 +20,10 @@ public class Ordered {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
     @Column(name = "date_ordered")
     private LocalDateTime dateOrdered;
 

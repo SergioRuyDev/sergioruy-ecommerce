@@ -19,11 +19,13 @@ public class ItemOrdered {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "ordered_id")
-    private Integer orderedId;
+    @ManyToOne
+    @JoinColumn(name = "ordered_id")
+    private Ordered ordered;
 
-    @Column(name = "product_id")
-    private Integer productId;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     @Column(name = "product_price")
     private BigDecimal productPrice;
