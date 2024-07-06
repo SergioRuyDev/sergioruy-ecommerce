@@ -5,6 +5,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -21,4 +23,7 @@ public class Customer {
 
     @Enumerated(EnumType.STRING)
     private CustomerGenderEnum gender;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Ordered> orders;
 }

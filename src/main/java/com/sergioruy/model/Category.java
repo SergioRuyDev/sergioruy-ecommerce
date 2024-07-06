@@ -5,6 +5,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -19,6 +21,10 @@ public class Category {
 
     private String name;
 
-    @Column(name = "category_higher_id")
-    private Integer categoryHigherId;
+    @ManyToOne
+    @JoinColumn(name = "category_higher_id")
+    private Category categoryHigher;
+
+    @OneToMany(mappedBy = "categoryHigher")
+    private List<Category> subCategories;
 }

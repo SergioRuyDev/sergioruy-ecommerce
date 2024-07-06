@@ -47,3 +47,7 @@ s
 Csrc/test/java/com/sergioruy/initwithjpa/MapEmbeddableClassTest.java,1/6/16ade8c65a0d61784295a4957a2541aa24bbfc7d
 p
 @src/test/java/com/sergioruy/relations/RelationManyToOneTest.java,8/8/88f987b51cca1265f0cd5e5fe61b7a76b14d3bd4
+p
+@src/test/java/com/sergioruy/relations/RelationOneToManyTest.java,c/3/c39df2204ca8cebc14a3f3376d9de68cf93e4c5d
+k
+;src/test/java/com/sergioruy/relations/AutoRelationTest.java,7/3/736fba4daf22fd0785af8d07976b651440a620bc
