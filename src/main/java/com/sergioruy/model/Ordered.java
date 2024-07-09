@@ -22,10 +22,10 @@ public class Ordered {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customer_id") // also can be changed for fetch = Lazy
     private Customer customer;
 
-    @OneToMany(mappedBy = "ordered")
+    @OneToMany(mappedBy = "ordered") // pattern can change to bring automatic , fetch = FetchType.EAGER
     private List<ItemOrdered> items;
 
     @Column(name = "date_ordered")
@@ -34,13 +34,16 @@ public class Ordered {
     @Column(name = "date_conclusion")
     private LocalDateTime dateConclusion;
 
-    @Column(name = "invoice_id")
-    private Integer invoiceId;
+    @OneToOne(mappedBy = "ordered")
+    private Invoice invoice;
 
     private BigDecimal amount;
 
     @Enumerated(EnumType.STRING)
     private StatusOrder status;
+
+    @OneToOne(mappedBy = "ordered")
+    private PaymentCard payment;
 
     @Embedded
     private AddressDeliveryOrdered addressDelivery;

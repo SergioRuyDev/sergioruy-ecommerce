@@ -51,3 +51,7 @@ p
 @src/test/java/com/sergioruy/relations/RelationOneToManyTest.java,c/3/c39df2204ca8cebc14a3f3376d9de68cf93e4c5d
 k
 ;src/test/java/com/sergioruy/relations/AutoRelationTest.java,7/3/736fba4daf22fd0785af8d07976b651440a620bc
+q
+Asrc/test/java/com/sergioruy/relations/RelationManyToManyTest.java,3/b/3befe646e65ba12eda55fd61106212635b8781b7
+q
+Asrc/test/java/com/sergioruy/initwithjpa/RelationOneToOneTest.java,4/c/4ce421ef7c183d8b8c03bbfac78e127022b64f15
