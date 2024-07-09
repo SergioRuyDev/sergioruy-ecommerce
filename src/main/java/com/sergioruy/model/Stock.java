@@ -1,9 +1,6 @@
 package com.sergioruy.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,8 +16,9 @@ public class Stock {
     @Id
     private Integer id;
 
-    @Column(name = "product_id")
-    private Integer productId;
+    @OneToOne(optional = false)
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     private Integer quantity;
 }

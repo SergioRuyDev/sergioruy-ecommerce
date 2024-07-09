@@ -21,7 +21,7 @@ public class Ordered {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "customer_id") // also can be changed for fetch = Lazy
     private Customer customer;
 
