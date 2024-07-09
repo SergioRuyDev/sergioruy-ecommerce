@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AutoRelationTest extends EntityManagerTest {
 
@@ -33,5 +32,23 @@ public class AutoRelationTest extends EntityManagerTest {
 
         Category categoryDadVerification = entityManager.find(Category.class, categoryDad.getId());
         assertFalse(categoryDadVerification.getSubCategories().isEmpty());
+    }
+
+    @Test
+    public void removeEntityReferencedTest() {
+
+        Ordered order = entityManager.find(Ordered.class, 1L);
+
+        assertFalse(order.getItems().isEmpty());
+
+        entityManager.getTransaction().begin();
+        order.getItems().forEach(item -> entityManager.remove(item));
+        entityManager.remove(order);
+        entityManager.getTransaction().commit();
+
+        entityManager.clear();
+
+        Ordered orderVerification = entityManager.find(Ordered.class, 1L);
+        assertNull(orderVerification);
     }
 }
